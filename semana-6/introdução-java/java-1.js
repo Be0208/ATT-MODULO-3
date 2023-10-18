@@ -1,16 +1,16 @@
 // Notas e pesos
-let nota1 = 6.5; // Nota da primeira avaliação
-let nota2 = 8.0; // Nota da segunda avaliação
-let nota3 = 7.2; // Nota da terceira avaliação
+let nota1 = 5.5;
+let nota2 = 3.0; 
+let nota3 = 8.2; 
 
-const peso1 = 2; // Peso da primeira avaliação
-const peso2 = 3; // Peso da segunda avaliação
-const peso3 = 5; // Peso da terceira avaliação
+let peso1 = 2;
+let peso2 = 3;
+let peso3 = 5; 
 
 // Cálculo da média ponderada
-const somaProdutos = nota1 * peso1 + nota2 * peso2 + nota3 * peso3;
-const somaPesos = peso1 + peso2 + peso3;
-const mediaPonderada = somaProdutos / somaPesos;
+let somaProdutos = nota1 * peso1 + nota2 * peso2 + nota3 * peso3;
+let somaPesos = peso1 + peso2 + peso3;
+let mediaPonderada = somaProdutos / somaPesos;
 
 // Verificar se o aluno passou ou reprovou
 if (mediaPonderada >= 7) {
