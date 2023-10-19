@@ -19,3 +19,4 @@ if (media >= 7)  {
 } else {
   console.log ("precisa estudar muito mais seu banana")
 }
+
