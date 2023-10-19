@@ -194,3 +194,4 @@ if (anoAtual - anoNascimento >= 16) {
 } else {
     document.write(`Voce não pode votar esse ano :(`)
 }
+
