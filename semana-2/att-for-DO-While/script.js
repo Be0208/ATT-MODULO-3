@@ -28,19 +28,19 @@ let maiorAltura = 0
 let menoraltura = 0
 
 
-for (let i = 0 ; i <= 5; i++) {
+for (let i = 0; i <= 5; i++) {
     const altura = Number(prompt('Digite a altura'))
 
     if (altura < menoraltura) {
         altura = menoraltura
-        
+
     }
 
     if (altura > maiorAltura) {
-        altura = maiorAltura 
-        
+        altura = maiorAltura
+
     }
-} 
+}
 
 document.write(`a maior altura é: ${maiorAltura} <br> `)
 
@@ -61,11 +61,11 @@ let lucasAltura = 110
 
 let anos = 0
 
-while(pedroAltura >= lucasAltura) {
-    
+while (pedroAltura >= lucasAltura) {
+
     pedroAltura += 2
-    lucasAltura += 3 
-    anos++ 
+    lucasAltura += 3
+    anos++
 }
 
 document.write(`a. Lucas e Pedro tenham o mesmo tamanho no total de ${anos} anos. <br>`)
@@ -97,7 +97,7 @@ for (let i = 0; i <= interação; i++) {
 // e verifique quais números são múltiplos de 3 e quais são múltiplos
 // de 5.
 
-let multiplo3 = 0 
+let multiplo3 = 0
 
 let multiplo5 = 0
 
@@ -120,7 +120,7 @@ document.write(`O numero ${multiplo5} é divisivel por 5 <br>`)
 // Ex: Digite um valor: 9
 // Contagem: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, FIM!
 
-const numEx5  = Number(prompt("Digite um valor"))
+const numEx5 = Number(prompt("Digite um valor"))
 let mensagem = "Contagem, "
 
 for (let i = 0; i <= numEx5; i++) {
@@ -187,4 +187,3 @@ console.log(`Total de números POSITIVOS: ${numerosPositivos}`);
 console.log(`Total de números NEGATIVOS: ${numerosNegativos}`);
 console.log(`Média de números POSITIVOS: ${porcentagemPositivos}`);
 console.log(`Média de números NEGATIVOS: ${porcentagemNegativos}`);
-   
