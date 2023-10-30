@@ -60,8 +60,6 @@ document.write(`Osalario pago aa mulheres é de R$${salarioMulheres} <br>`)
 
 
 
-
-
 // 3. Crie um algoritmo que leia o valor inicial da contagem, o valor final e
 // o incremento, mostrando em seguida todos os valores no intervalo:
 // Ex:
