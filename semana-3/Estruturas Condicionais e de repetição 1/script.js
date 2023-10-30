@@ -3,25 +3,19 @@
 // mostre quantos alunos existem na turma e qual é a média de idade
 // do grupo.
 
-let idade; 
-let contador = 0
-let media = 0
-let totalIdade = 0
+// let idade; 
+// let contador = 0
+// let media = 0
+// let totalIdade = 0
 
-while (idade!= 999) {
-    idade = Number(prompt("Digite a idade do aluno:"))
-    if (idade!= 999) {
-        totalIdade += idade
-        contador++
-    }
-}
-console.log(`media ${totalIdade / contador} toFixed: ${totalIdade}`);
-
-
-
-
-
-
+// while (idade!= 999) {
+//     idade = Number(prompt("Digite a idade do aluno:"))
+//     if (idade!= 999) {
+//         totalIdade += idade
+//         contador++
+//     }
+// }
+// console.log(`media ${totalIdade / contador} toFixed: ${totalIdade}`);
 
 
 // 2. Desenvolva um aplicativo que leia o salário e o sexo de vários
@@ -34,7 +28,7 @@ let salarioHomens = 0
 let salarioMulheres = 0 
 confirm = true 
 
-do {
+while (continuar) {
     salario = prompt('Qual o salario?')
     sexo = prompt('O salario é de um Homem ou uma mulher?')
     
@@ -44,20 +38,12 @@ do {
         salarioMulheres += salario
     } 
     confirm('Deseja continuar?')
-}
-while (true) {
+    
+} 
 
-}
-document.write(`Osalario pago aa mulheres é de R$${salarioMulheres} <br>`)
+document.write(`O salario Do humem é: ${salarioHomens}`)
 
-
-
-
-
-
-
-
-
+document.write(`O salario da mulher é: ${salarioMulheres}`)
 
 
 // 3. Crie um algoritmo que leia o valor inicial da contagem, o valor final e
