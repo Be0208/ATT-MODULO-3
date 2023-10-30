@@ -138,7 +138,7 @@ document.write(`${mensagem}. FIM!`);
 
 let contagem = " "
 
-for (let i = 10000; i >= 1; i--) {
+for (let i = 30; i >= 1; i--) {
 
     let primo = true;
 
