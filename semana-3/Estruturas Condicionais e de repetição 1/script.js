@@ -3,19 +3,19 @@
 // mostre quantos alunos existem na turma e qual é a média de idade
 // do grupo.
 
-// let idade; 
-// let contador = 0
-// let media = 0
-// let totalIdade = 0
+let idade; 
+let contador = 0
+let media = 0
+let totalIdade = 0
 
-// while (idade!= 999) {
-//     idade = Number(prompt("Digite a idade do aluno:"))
-//     if (idade!= 999) {
-//         totalIdade += idade
-//         contador++
-//     }
-// }
-// console.log(`media ${totalIdade / contador} toFixed: ${totalIdade}`);
+while (idade!= 999) {
+    idade = Number(prompt("Digite a idade do aluno:"))
+    if (idade!= 999) {
+        totalIdade += idade
+        contador++
+    }
+}
+console.log(`media ${totalIdade / contador} toFixed: ${totalIdade}`);
 
 
 // 2. Desenvolva um aplicativo que leia o salário e o sexo de vários
@@ -29,21 +29,19 @@ let salarioMulheres = 0
 confirm = true 
 
 while (continuar) {
-    salario = prompt('Qual o salario?')
-    sexo = prompt('O salario é de um Homem ou uma mulher?')
+    let salario = prompt("Qual o salario?")
+    let sexo = prompt("O salario é de um Homem ou uma mulher?")
     
-    if (sexo == 'Homens') {
+    if (sexo == "Homem") {
         salarioHomens += salario
-    } else if (sexo == 'Mulher') {
+    } else if (sexo == "Mulher") {
         salarioMulheres += salario
     } 
-    confirm('Deseja continuar?')
+    continuar = confirm("Deseja continuar?")
     
 } 
-
-document.write(`O salario Do humem é: ${salarioHomens}`)
-
-document.write(`O salario da mulher é: ${salarioMulheres}`)
+document.write(`O salario Do humem é: ${salarioHomens} <br>`)
+document.write(`O salario da mulher é: ${salarioMulheres} <br>`)
 
 
 // 3. Crie um algoritmo que leia o valor inicial da contagem, o valor final e
@@ -54,16 +52,18 @@ document.write(`O salario da mulher é: ${salarioMulheres}`)
 // Digite o incremento: 2
 // Contagem: 3 5 7 9 Acabou!
 
+const inicial = Number(prompt("Insira o valor inicial:"))
+const final = Number(prompt("Insira o valor final:"))
+const incremento = Number(prompt("Insira o valor de incremento:"))
 
 
-
-
-
-
-
-
-
-
+document.write("Contagem")
+document.write(inicial)
+for (let valor = inicial; valor < final; valor+= incremento) {
+    documento.write(valor + " ")
+}
+document.write(final)
+document.write("<br>Acabou!")
 
 
 // 4. Numa promoção exclusiva para o Dia da Mulher, uma loja quer dar
@@ -74,13 +74,25 @@ document.write(`O salario da mulher é: ${salarioMulheres}`)
 
 // b. Mulheres ganham 13% de desconto
 
+let nome = " "
+let genero = " "
+let valorCompra = " "
 
+nome = prompt('Gigite seu nome')
+genero = prompt('digite seu Sexo, M - Mulher ou H = Homem').toUpperCase( )
+valorCompra = Number(prompt("Digite o valor da comprado"))
 
+if (genero === 'F') {
+    valorCompra *= 0.87
 
+} else if (genero === 'H') {
+    valorCompra *= 0.95
 
+} else {
+    alert("Caractere invalido")
+}
 
-
-
+document.write(`O seu nome é ${nome}, seu sexo é ${genero}, e seu valor da compra é de R$ ${valorCompra.toFixed(2)}`)
 
 
 
@@ -89,20 +101,13 @@ document.write(`O salario da mulher é: ${salarioMulheres}`)
 // R$0.50 por Km para viagens até 200Km e R$0.45 para viagens mais
 // longas.
 
+const distancia = Number(prompt('Insira a distancia'))
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+if (distancia <= 200) {
+    document.write( `Valor da passagem é de R$${(distancia * 0.5.toFixed(2).replace(".", ","))}`)
+}else {
+    document.write(`Valor da passagem é de R$${(distancia * 0.45.toFixed(2).replace(".", ","))}`)
+}
 
 
 // 6. Faça um programa que leia a largura e o comprimento de um
@@ -112,3 +117,15 @@ document.write(`O salario da mulher é: ${salarioMulheres}`)
 // Abaixo de 100m2 = TERRENO POPULAR
 // Entre 100m2 e 500m2 = TERRENO MASTER
 // Acima de 500m2 = TERRENO VIP
+
+const largura = Number(prompt("Insira a largura do terreno"))
+const comprimento = Number(prompt("Insira o comprimento do terreno"))
+const area = largura * comprimento
+
+if (area <= 100) {
+    document.write(`A área do terreno é de ${area.toFixed(2)}m², e o seu tipo é: TERRENO POPULAR`)
+} else if (area >= 100) {
+    document.write(`A área do terreno é de ${area.toFixed(2)}m², e o seu tipo é: TERRENO MASTER`)
+} else {
+    document.write(`A área do terreno é de ${area.toFixed(2)}m², e o seu tipo é: TERRENO VIP`)
+}
