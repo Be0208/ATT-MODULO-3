@@ -1,0 +1,41 @@
+3. Utilizando o IF, ELSE, ELSE IF crie uma estrutura para receber um
+número de 1 a 7 e imprimir no console o dia da Semana. Para este
+exercício assumimos que o dia 1 é Domingo, dia 2 é segunda e assim
+por diante. Caso o número recebido não esteja neste intervalo
+imprimir “Dia não reconhecido”.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let numeroSemana = Number(prompt('Numero do dia da semana'))
+
+        if (numeroSemana == 1) {
+            console.log('Domingo')
+        } else if (numeroSemana == 2) {
+            console.log('Segunda')
+        } else if (numeroSemana == 3) {
+            console.log('Terça')
+        } else if (numeroSemana == 4) {
+            console.log('Quarta')
+        } else if (numeroSemana == 5) {
+            console.log('Quinta')
+        } else if (numeroSemana == 6) {
+            console.log('Sexta')
+        } else if (numeroSemana == 7) {
+            console.log('Sabado')
+        } else {
+            console.log('não reconhecido')
+        }
+
+    </script>
+</body>
+
+</html>

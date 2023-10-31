@@ -1,0 +1,28 @@
+<!-- 1. Crie uma variável para ler a idade de um motorista. Caso o
+motorista tenha idade maior ou igual a 18 anos imprime no console
+“Pode dirigir”, caso contrário imprima “Não pode dirigir”. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 1</title>
+</head>
+
+<body>
+    <script>
+
+        let idade = Number(prompt(`digite a sua idade`))
+
+        if (idade >= 18 && !isNaN(idade) && Number.isInteger(idade)) {
+            console.log(`Pode dirigir`)
+        } else {
+            console.log(`Não pode dirigir`)
+        }
+
+    </script>
+</body>
+
+</html>

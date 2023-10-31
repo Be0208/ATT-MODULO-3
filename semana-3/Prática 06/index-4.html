@@ -1,0 +1,48 @@
+4. Reescreva o exercício 3, utilizando apenas o SWITCH.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let numeroSemana = Number(prompt('Numero do dia da semana'))
+        let nomeDia;
+
+        switch (numeroSemana) {
+            case 1:
+                nomeDia = 'Domingo'
+                break;
+            case 2:
+                nomeDia = 'Segunda'
+                break;
+            case 3:
+                nomeDia = 'Terça'
+                break;
+            case 4:
+                nomeDia = 'Quarta'
+                break;
+            case 5:
+                nomeDia = 'Quinta'
+                break;
+            case 6:
+                nomeDia = 'Sexta'
+                break;
+            case 7:
+                nomeDia = 'Sabado'
+                break;
+            default:
+                nomeDia = 'não reconhecido'
+                break;
+        }
+        console.log(nomeDia)
+
+    </script>
+</body>
+
+</html>

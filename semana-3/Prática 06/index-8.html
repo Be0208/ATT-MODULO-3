@@ -1,0 +1,30 @@
+8. Crie uma variável para armazenar o salário do usuário e atribua um
+valor a essa variável. Crie a validação necessária:
+- Caso o salário seja MENOR que R$ 1.903,98, insira no html
+"ISENTO DE IR";
+- caso contrário insira "TRIBUTADO NO IR".
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        let valorSalario = Number(prompt(`digite a seu salario`))
+
+        if (valorSalario < 1903.98 && !isNaN(valorSalario)) {
+            document.write(`<br> <br>ISENTO DE IR`)
+        } else {
+            document.write(`<br> <br>TRIBUTADO NO IR`)
+        }
+
+    </script>
+</body>
+
+</html>

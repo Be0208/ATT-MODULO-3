@@ -1,0 +1,17 @@
+16. Escreva um algoritmo que armazene o ano atual e o ano de
+nascimento de uma pessoa. Escrever uma mensagem no console
+que diga se ela poderá ou não votar este ano (não é necessário
+considerar o mês em que a pessoa nasceu).
+
+
+<script>
+    const anoAtual = new Date().getFullYear()
+    let nasc = Number(prompt("Digite a sua data de nascimento"))
+
+    if (anoAtual - nasc >= 16) {
+        console.log(`Maior de 16 anos. PODERÁ VOTAR!`)
+    } else {
+        console.log(`Menor de 16 anos. NÃO PODERÁ VOTAR!`)
+    }
+
+</script>

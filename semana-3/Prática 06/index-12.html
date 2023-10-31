@@ -1,0 +1,20 @@
+12. Para doar sangue é necessário ter entre 18 e 67 anos. Faça um
+programa que armazene a idade de uma pessoa e diga se ela pode
+doar sangue ou não. Use alguns dos operadores lógicos OU (||) e E
+(&&).
+<br>
+<br>
+
+<script>
+
+    let idade = Number(prompt('Insira sua idade '))
+    let podeDoarSangue
+
+    if (idade >= 18 && idade <= 67) {
+        podeDoarSangue = "Você pode doar sangue"
+    } else {
+        podeDoarSangue = "Você não pode doar sangue"
+    }
+    document.write(podeDoarSangue)
+
+</script>
