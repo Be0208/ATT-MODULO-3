@@ -1,0 +1,61 @@
+1- Definir uma biblioteca de livros:
+Crie um array vazio chamado "biblioteca" para armazenar os livros.
+
+
+2 - Adicionar livros à biblioteca:
+Crie objetos para representar os livros com informações como título, autor, número de páginas e se foram lidos.
+Use push() para adicionar esses objetos à "biblioteca".
+
+
+3 - Exibir a biblioteca no console:
+Utilize um loop for...of para percorrer a "biblioteca" e exibir informações de cada livro no console.
+
+
+4 - Remover um livro específico:
+Crie um novo array vazio chamado "novaBiblioteca".
+Use um loop for...of para percorrer a "biblioteca" e copiar os livros desejados para a "novaBiblioteca".
+Atribua o valor de "novaBiblioteca" a "biblioteca" para atualizar a lista de livros.
+
+
+5 - Marcar um livro como lido:
+Utilize um loop for...of para percorrer a "biblioteca" e, quando encontrar o livro desejado, atualize a propriedade
+"lido" para true.
+
+
+6 - Exibir a biblioteca atualizada no console:
+Utilize um loop for...of para percorrer a "biblioteca" e exibir informações de cada livro no console após as
+modificações.
+
+
+<script>
+    const biblioteca = []
+
+    let livros = {
+        titulo: "diario de um banana",
+        autor: "Bernardo",
+        numPaginas: 160,
+        numLidas: 55
+
+
+
+    }
+
+    biblioteca.push(livros)
+
+    for (let livro of biblioteca) {
+        console.log(livro);
+    }
+
+    const novaBiblioteca = []
+
+    for (let key in biblioteca) {
+        novaBiblioteca[key] = biblioteca[key];
+    }
+    console.log(novaBiblioteca);
+
+
+
+
+
+
+</script>
