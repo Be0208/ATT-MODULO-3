@@ -101,7 +101,6 @@ Nome: Alessandro, Idade: 28, Salário: 3000
         const nome = prompt(`Informe o nome da pessoa:`);
         const idade = Number(prompt(`Informe a idade da pessoa:`));
 
-
         if (confirm("Por acaso atualmente você está empregado")) {
             salario = Number(prompt(`Informe o salario da pessoa:`));
             if (salario >= 2500) {
@@ -130,7 +129,6 @@ Nome: Alessandro, Idade: 28, Salário: 3000
             break
         }
     }
-
     console.log("Pessoas empregadas com salários maiores que 2500:");
     for (const pessoa of empregadosMaior2500) {
         console.log(`Nome: ${pessoa.nome}, Idade: ${pessoa.idade}, Salário: ${pessoa.salario}`);
@@ -145,6 +143,4 @@ Nome: Alessandro, Idade: 28, Salário: 3000
     for (const pessoa of desempregados) {
         console.log(`Nome: ${pessoa.nome}, Idade: ${pessoa.idade}`);
     }
-
-
 </script>
