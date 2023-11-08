@@ -3,15 +3,34 @@
     // 1. Desenvolva um algoritmo para percorrer um vetor de 15 elementos
     // inteiros já preenchido e imprima todos os valores pares.
 
+    let elements = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
 
+    for (const elemento of elements) {
+        if (elemento % 2 === 0) {
+            console.log(elemento + ' ')
+        }
+    }
 
     // 2. Desenvolva um algoritmo para percorrer um vetor de 20 elementos
     // inteiros e no final mostre a soma de todos os elementos.
 
+    let elementos2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+    let soma = 0
+
+    for (let element of elementos2) {
+        soma += element
+    }
+    console.log(`a Soma dos elementos ${elements} é ${soma}`);
 
 
     // 3. Desenvolva um algoritmo que preenche um vetor com os 4
     // primeiros números perfeitos.
+
+    let perfeito = []
+
+    for (let numero = 1; perfeito < 4; numero++) {
+        let somas = 0
+    }
 
 
 
@@ -19,6 +38,21 @@
     // solicite um número para o usuário e no final informe se o número
     // que o usuário digitou está dentro da lista ou não.
 
+    let numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    let numeroPedido = Number(prompt('digite um numero'))
+    let encontrado = false
+
+    for (let numero9 of numeros) {
+        if (numero9 === numeroPedido) {
+            encontrado = true
+            break
+        }
+    }
+    if (!encontrado) {
+        console.log('o numero não esta na lista');
+    } else {
+        console.log('o numero esta na lista');
+    }
 
 
     // 5. Escreva um algoritmo que solicite ao usuário a entrada de 5 nomes,
@@ -26,13 +60,19 @@
     // programa deve mostrar também os nomes na ordem inversa em
     // que o usuário os digitou.
 
+    //Utilizando o '.reverse()" PARA SIMPLIFICAR
+
+    let nomes = []
+
+    while (nomes.length < 5) {
+        nomes.push(prompt("DIgite 5 nomes"))
+    }
+    console.log(nomes);
+    console.log(nomes.reverse());
 
 
     // Ex:
     // Entrada: Édson, Marcelo, Letícia, Ju, Thobias
     // Saída: Thobias, Ju, Letícia, Marcelo, Édson
-
-
-
 
 </script>
