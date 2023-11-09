@@ -1,24 +1,30 @@
-1. Considere o seguinte array:
+<!-- 1. Considere o seguinte array:
 const salarios = [5000.00, 5460.50, 3452.00, 6900.00, 7590.10, 8012.99,
 1290.00, 15000.00];
 
-<script>
-
-
-</script>
-
-
 a. Imprima no console o índice do primeiro salário maior que
 7.500 utilizando o findIndex
+
 b. Crie uma nova lista filtrada com os salários que são maior que
-8.000 utilizando o filter
+8.000 utilizando o filter -->
+
 <script>
+    const salarios = [5000.00, 5460.50, 3452.00, 6900.00, 7590.10, 8012.99, 1290.00, 15000.00];
 
+    const salarioFindIndex = salarios.findIndex(function (salario) {
+        return salario >= 7500.55
+    })
+    console.log(`índice do primeiro salário maior que 7500: ${salarioFindIndex}`);
 
+    const salariosFiltrados = salarios.filter(function (salario) {
+        return salario >= 8000.00
+    })
+    console.log(`os salários que são maior que 8000: ${salariosFiltrados}`);
 </script>
 
 
-2. James estava criando uma array com as cores do arco-íris, e ele
+
+<!-- 2. James estava criando uma array com as cores do arco-íris, e ele
 esqueceu algumas cores. As cores padrão de um arco-íris são
 normalmente listadas nesta ordem:
 const rainbow = ["Vermelho", "Laranja", "Amarelo", "Verde", "Azul",
@@ -32,18 +38,26 @@ remova a cor "Preto", seguindo estes passos:
 
 a. Remova "Preto"
 b. Adicione "Amarelo" e "Verde"
-c. Adicione "Roxo"
+c. Adicione "Roxo" -->
 
 <script>
+    const rainbow = ["Vermelho", "Laranja", "Preto", "Azul"]
+
+    rainbow.splice(rainbow.indexOf("Preto"), 1);
+
+    rainbow.push("roxo", "Amarela", "Verde");
+
+
+    console.log(rainbow);
+
 
 
 </script>
 
 
-3. Crie um cadastro de pessoas onde o usuário informe o nome, idade
+<!-- 3. Crie um cadastro de pessoas onde o usuário informe o nome, idade
 e se está trabalhando ou não, se a pessoa estiver trabalhando
 pergunte para ele o salário que está ganhando. Para cada pessoa
-
 cadastrada, pergunte ao usuário se ele deseja continuar
 cadastrando ou não. No final, mostre as pessoas que estão
 desempregadas, as pessoas que estão empregadas separadas
@@ -60,4 +74,61 @@ Nome: Alessandro, Idade: 28, Salário: 2400
 
 Pessoas empregadas com salários maiores que 2500:
 Nome: Alessandro, Idade: 28, Salário: 2700
-Nome: Alessandro, Idade: 28, Salário: 3000
+Nome: Alessandro, Idade: 28, Salário: 3000 -->
+
+<script>
+
+    const desempregados = [];
+    const empregadosMaior2500 = [];
+    const empregadosMenor2500 = [];
+    let salario
+
+    let continuar = true;
+
+    while (continuar) {
+        const nome = prompt(`Informe o nome da pessoa:`);
+        const idade = Number(prompt(`Informe a idade da pessoa:`));
+
+        if (confirm("Por acaso atualmente você está empregado")) {
+            salario = Number(prompt(`Informe o salario da pessoa:`));
+            if (salario >= 2500) {
+                empregadosMaior2500.push({
+                    nome,
+                    idade,
+                    salario,
+                })
+            } else if (salario < 2500) {
+                empregadosMenor2500.push({
+                    nome,
+                    idade,
+                    salario,
+                })
+            }
+        } else {
+            desempregados.push({
+                nome,
+                idade,
+            })
+        }
+
+
+        if (!confirm("Voce deseja continuar?")) {
+            continuar = false
+            break
+        }
+    }
+    console.log("Pessoas empregadas com salários maiores que 2500:");
+    for (const pessoa of empregadosMaior2500) {
+        console.log(`Nome: ${pessoa.nome}, Idade: ${pessoa.idade}, Salário: ${pessoa.salario}`);
+    }
+
+    console.log("Pessoas empregadas com salários menores que 2500:");
+    for (const pessoa of empregadosMenor2500) {
+        console.log(`Nome: ${pessoa.nome}, Idade: ${pessoa.idade}, Salário: ${pessoa.salario}`);
+    }
+
+    console.log("Pessoas desempregadas:");
+    for (const pessoa of desempregados) {
+        console.log(`Nome: ${pessoa.nome}, Idade: ${pessoa.idade}`);
+    }
+</script>
