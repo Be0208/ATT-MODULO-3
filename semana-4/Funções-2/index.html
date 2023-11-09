@@ -1,0 +1,193 @@
+<!-- 1. Crie uma função que recebe 3 notas de um aluno por parâmetro e
+uma letra. Se a letra for A a função deve calcular a média aritmética,
+se for P, a média ponderada (peso: 5, 3 e 2). -->
+
+<script>
+
+    function mediaAluno(notas, metodo) {
+        const [nota1, nota2, nota3] = notas
+        //if simplificado pois ele só tem uma linha
+        if (metodo === "A") return (nota1 + nota2 + nota3) / 3
+
+        if (metodo === "P") return (nota1 * 5 + nota2 * 3 + nota3 * 2) / 10
+
+        else return null
+    }
+
+    console.log(mediaAluno([1, 4, 5], "A"));
+    // OUUUU
+
+    function calcularMedia(n1, n2, n3, m) {
+        if (m === 'A') {
+            return (n1 + n2 + n3) / 3
+        } else if (m === 'P') {
+            return ((n1 * 5) + (n2 * 3) + (n3 * 2)) / 10
+        }
+    }
+    console.log(`Nota 1: 10, Nota 2: 9, Nota 3: 8`)
+    console.log(`Média aritmética: ${calcularMedia(10, 9, 8, 'A')}<br>`)
+    console.log(`Média ponderada: ${calcularMedia(10, 9, 8, 'P')}<br>`)
+
+    // OUUUU
+
+    function media(nota1, nota2, nota3, letra) {
+        if (letra === "A") {
+            console.log((nota1 + nota2 + nota3) / 3);
+        } else if (letra === "P") {
+            console.log(((nota1 * 5) + (nota2 * 3) + (nota3 * 2)) / 10)
+        } else {
+            alert('Digite uma letra válida (A) ou (P)')
+        }
+    }
+    media(8, 10, 9, "A");
+
+</script>
+
+
+<!-- 2. Crie uma função que recebe um valor inteiro e retorne verdadeiro se
+for ímpar ou falso se for par. -->
+
+<script>
+    function verificarImpar(numero) {
+        if (numero % 2 === 1)
+            return true
+        else return false
+    }
+    console.log(verificarImpar(5));
+
+    // ouuuu
+
+    function ehImpar(numero) {
+        return numero % 2 !== 0
+    }
+
+    console.log(ehImpar(10));
+</script>
+
+
+<!-- 3. Crie uma função que recebe por parâmetro um valor inteiro e
+positivo e retorne verdadeiro se o número for primo ou falso se não
+for. -->
+
+<script>
+
+    function valorInt(numero) {
+        if (numero === 2) return true
+        if (numero % 2 === 0) return false
+
+        for (let i = 3; i * i <= numero; i += 2) {
+            if (numero % i === 0)
+                return false
+        }
+        return true
+
+
+    }
+</script>
+
+
+<!-- 4. Crie uma função que recebe por parâmetro o tempo de duração de
+uma fábrica expressa em segundos e retorna esse tempo em horas,
+minutos e segundos.
+
+Ex:
+Entrada: 3672
+Saída: 1:1:12 -->
+<script>
+    function converterTempo(segundos) {
+        const horas = Math.floor(segundos / 3600)
+        segundos %= 3600
+        const minutos = Math.floor(segundos / 60)
+        segundos %= 60
+        return `${horas}: ${minutos} ${segundos}`
+    }
+    const tempoSegundos = 3672
+    const tempoFormatado = converterTempo(tempoSegundos)
+
+    console.log(converterTempo(tempoSegundos))
+
+</script>
+
+
+<!-- 5. Crie uma função que recebe um valor inteiro e retorne verdadeiro se
+é um valor perfeito ou falso se não for. Um valor é dito perfeito
+quando ele é igual a soma dos seus divisores excetuando ele
+próprio.
+
+Ex: 6 é perfeito, pois 6 = 1 + 2 + 3, que são seus divisores -->
+
+<script>
+
+    function valorPerfeito(valor) {
+        if (valor <= 1) return false;
+
+        let somaDivisores = 0;
+
+        for (let i = 1; i < valor; i++) {
+            if (valor % i === 0) somaDivisores += i;
+        }
+        return somaDivisores === valor;
+    }
+    console.log(valorPerfeito(10));
+
+</script>
+
+
+<!-- 6. Crie uma função chamada acessoAoSite() que não tenha
+parâmetro. Esta função será chamada ao abrir a página e mostrará
+um alerta informando “Bem vindo ao site”. -->
+
+<script>
+
+    function acessoAoSite() {
+        alert("Bem vindo ao site")
+    }
+    acessoAoSite()
+
+</script>
+
+
+<!-- 7. Crie uma função chamada mostrarMensagem() que não tenha
+parâmetro. Esta função será chamada ao abrir a página e mostrará
+uma mensagem no console.log() informando “Acesso à aplicação
+NomeAplicação” e um alerta informando “Bem vindo à aplicação
+NomeApliação”. Sendo que o nome da aplicação deve ser salvo em
+uma variável para mostrar nas mensagens.
+8. Crie uma função chamada mostrarDobro(num), que recebe um
+parâmetro sendo um número inteiro. Esta função será chamada ao
+abrir a página e mostrará um alerta com o resultado. Exemplo: “O
+dobro do número 5 é 10.” -->
+
+<script>
+
+let aplicacao = "Growdev"
+function mostrarMensagem() {
+  console.log(`Acesso à aplicação ${aplicacao}`);
+  alert(`Acesso à aplicação ${aplicacao}`)
+}
+
+</script>
+
+
+<!-- 9. Crie uma função chamada calcularMedia(nota1, nota2, nota3,
+nome), que recebe 4 parâmetros sendo três inteiros e um texto
+(String). Esta função será chamada ao abrir a página e mostrará um
+alerta com a média. Exemplo: “João, sua média é 70.” A função
+também deve mostrar no console.log() as notas recebidas. Exemplo
+“Nota 1: 60,Nota 2: 70,Nota 3: 80”. -->
+
+<script>
+    
+    function calcularMedia(nota1, nota2, nota3, nome) {
+        const media = (nota1 + nota2 + nota3) / 3
+
+        alert(`${nome}, sua media é ${media.toFixed(1)}`)
+
+        console.log(`nota 1: ${nota1}, nota 2: ${nota2}, nota 3: ${nota3}`);
+    }
+
+    calcularMedia(90, 60, 80, "Bernardo")
+
+
+
+</script>
