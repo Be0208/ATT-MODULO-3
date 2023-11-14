@@ -1,12 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRUD de Carros</title>
-    <link rel="stylesheet" href="./script.js">
 </head>
+
 <body>
-    
+    <script>
+        const todosCarros = []
+
+        //1
+        function adicionarCarro() {
+            const id = todosCarros.length + 1
+            const modelo = prompt('Informe o modelo do veículo:')
+            const marca = prompt('Informe a marca do veículo:')
+            const ano = prompt('Informe o ano do veículo:')
+            const cor = prompt('Informe a cor do veículo:')
+            const preco = prompt('Informe o preço do veículo:')
+
+            const novoCarro = {id, modelo, marca, ano, cor, preco };
+            todosCarros.push(novoCarro);
+            
+            console.log('Veículo adicionado')
+        }
+
+        //2
+        function listarCarros() {
+            todosCarros.forEach((veiculo) => {
+                console.log(`ID: ${veiculo.id} | Modelo: ${veiculo.modelo} | Marca: ${veiculo.marca} | Ano: ${veiculo.ano} | Cor: ${veiculo.cor} | Preço: R$${veiculo.preco}`);
+            });
+        }
+
+        //3
+        function filtrarCarrosMarca() {
+            const marcaFiltro = prompt('Qual marca de carro deseja buscar?')
+            const filtroCarros = todosCarros.filter((carro) => carro.marca === marcaFiltro)
+
+            if (filtroCarros.length > 0) {
+                console.log(`Veículos da Marca ${marcaFiltro} `)
+                filtroCarros.forEach((carro) => {
+                    console.log(`ID: ${carro.id} | Modelo: ${carro.modelo} | Cor: ${carro.cor} | Preço: R$${carro.preco}`);
+                });
+            } else {
+                console.log(`${marcaFiltro} nao é uma carca de carro`)
+            }
+        }
+
+        //4
+        function atualizarCarro() {
+            const atualizarId = prompt('Digite o IDENTIFICADOR do veículo que deseja atualizar:')
+            const carros = todosCarros.find((carro) => carro.id === atualizarId)
+
+            if (carros) {
+                const novaCor = prompt('Digite a nova cor do veículo:')
+                const novoPreco = prompt('Digite o novo preço do veículo:')
+
+                carros.cor = novaCor
+                carros.preco = novoPreco
+
+                console.log(`Veículo atualizado!`);
+            } else console.log(`veiculo nao encontrado`);
+        }
+
+        //5
+        function removerCarro() {
+            const removerId = prompt('Digite o IDENTIFICADOR do veículo que deseja remover:')
+            const indice = todosCarros.findIndex((carro) => {
+                return carro.id === removerId
+            })
+
+            if (indice !== -1) {
+                todosCarros.splice(indice, 1)
+                console.log('Veículo removido')
+            } else console.log('veiculo nao encontrado :(')
+        }
+
+        //6
+        function menuzinho() {
+            while (true) {
+                console.log('-----Sistema para cadastrar Carros------');
+                console.log('1 - cadastrar Carro');
+                console.log('2 - listar todos os carros');
+                console.log('3 - Filtar os Carros por marca');
+                console.log('4 - Atualizar Carros');
+                console.log('5 - Revover algum carro');
+                console.log('6 - sair do sistema');
+
+
+                const opcoes = Number(prompt('digite a opção escolhida com numeros de 1 a 6'))
+
+                switch (opcoes) {
+                    case 1:
+                        adicionarCarro()
+                        break;
+                    case 2:
+                        listarCarros();
+                        break;
+                    case 3:
+                        filtrarCarrosMarca();
+                        break;
+                    case 4:
+                        atualizarCarro();
+                        break;
+                    case 5:
+                        removerCarro();
+                        break;
+                    case 6:
+                        console.log('Sistema encerrado.');
+                        return;
+                    default:
+                        console.log('Opção inválida. Tente novamente.');
+                }
+            }
+        }
+
+    </script>
 </body>
+
 </html>
