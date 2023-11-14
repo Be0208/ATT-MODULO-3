@@ -52,7 +52,7 @@
         //4
         function atualizarCarro() {
             const atualizarId = prompt('Digite o IDENTIFICADOR do veículo que deseja atualizar:')
-            const carros = todosCarros.find((carro) => carro.id === atualizarId)
+            const carros = todosCarros.findIndex((carro) => carro.id === atualizarId)
 
             if (carros) {
                 const novaCor = prompt('Digite a nova cor do veículo:')
