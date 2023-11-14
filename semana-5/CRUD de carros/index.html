@@ -11,6 +11,7 @@
     <script>
         const todosCarros = []
 
+
         //1
         function adicionarCarro() {
             const id = todosCarros.length + 1
@@ -20,9 +21,9 @@
             const cor = prompt('Informe a cor do veículo:')
             const preco = prompt('Informe o preço do veículo:')
 
-            const novoCarro = {id, modelo, marca, ano, cor, preco };
+            const novoCarro = { id, modelo, marca, ano, cor, preco };
             todosCarros.push(novoCarro);
-            
+
             console.log('Veículo adicionado')
         }
 
@@ -35,16 +36,16 @@
 
         //3
         function filtrarCarrosMarca() {
-            const marcaFiltro = prompt('Qual marca de carro deseja buscar?')
-            const filtroCarros = todosCarros.filter((carro) => carro.marca === marcaFiltro)
+            const marcaFiltro = prompt('Qual marca de carro deseja buscar?');
+            const filtroCarros = todosCarros.filter((carro) => carro.marca === marcaFiltro);
 
             if (filtroCarros.length > 0) {
-                console.log(`Veículos da Marca ${marcaFiltro} `)
+                console.log(`Veículos da Marca ${marcaFiltro}`);
                 filtroCarros.forEach((carro) => {
                     console.log(`ID: ${carro.id} | Modelo: ${carro.modelo} | Cor: ${carro.cor} | Preço: R$${carro.preco}`);
                 });
             } else {
-                console.log(`${marcaFiltro} nao é uma carca de carro`)
+                console.log(`${marcaFiltro} não é uma marca de carro válida`);
             }
         }
 
@@ -115,6 +116,8 @@
                 }
             }
         }
+        menuzinho()
+
 
     </script>
 </body>
