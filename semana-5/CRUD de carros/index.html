@@ -67,10 +67,8 @@
 
         //5
         function removerCarro() {
-            const removerId = prompt('Digite o IDENTIFICADOR do veículo que deseja remover:')
-            const indice = todosCarros.findIndex((carro) => {
-                return carro.id === removerId
-            })
+            const removerId = Number(prompt('Digite o IDENTIFICADOR do veículo que deseja remover:'))
+            const indice = todosCarros.findIndex((carro) => carro.id === removerId)
 
             if (indice !== -1) {
                 todosCarros.splice(indice, 1)
