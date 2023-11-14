@@ -24,13 +24,13 @@
             const novoCarro = { id, modelo, marca, ano, cor, preco };
             todosCarros.push(novoCarro);
 
-            console.log('Veículo adicionado')
+            alert('Veículo adicionado')
         }
 
         //2
         function listarCarros() {
             todosCarros.forEach((veiculo) => {
-                console.log(`ID: ${veiculo.id} | Modelo: ${veiculo.modelo} | Marca: ${veiculo.marca} | Ano: ${veiculo.ano} | Cor: ${veiculo.cor} | Preço: R$${veiculo.preco}`);
+                alert(`ID: ${veiculo.id} | Modelo: ${veiculo.modelo} | Marca: ${veiculo.marca} | Ano: ${veiculo.ano} | Cor: ${veiculo.cor} | Preço: R$${veiculo.preco}`);
             });
         }
 
@@ -40,12 +40,12 @@
             const filtroCarros = todosCarros.filter((carro) => carro.marca === marcaFiltro);
 
             if (filtroCarros.length > 0) {
-                console.log(`Veículos da Marca ${marcaFiltro}`);
+                alert(`Veículos da Marca ${marcaFiltro}`);
                 filtroCarros.forEach((carro) => {
-                    console.log(`ID: ${carro.id} | Modelo: ${carro.modelo} | Cor: ${carro.cor} | Preço: R$${carro.preco}`);
+                    alert(`ID: ${carro.id} | Modelo: ${carro.modelo} | Cor: ${carro.cor} | Preço: R$${carro.preco}`);
                 });
             } else {
-                console.log(`${marcaFiltro} não é uma marca de carro válida`);
+                alert(`${marcaFiltro} não é uma marca de carro válida`);
             }
         }
 
@@ -61,8 +61,8 @@
                 carros.cor = novaCor
                 carros.preco = novoPreco
 
-                console.log(`Veículo atualizado!`);
-            } else console.log(`veiculo nao encontrado`);
+                alert(`Veículo atualizado!`);
+            } else alert(`veiculo nao encontrado`);
         }
 
         //5
@@ -74,23 +74,23 @@
 
             if (indice !== -1) {
                 todosCarros.splice(indice, 1)
-                console.log('Veículo removido')
-            } else console.log('veiculo nao encontrado :(')
+                alert('Veículo removido')
+            } else alert('veiculo nao encontrado :(')
         }
 
         //6
         function menuzinho() {
             while (true) {
-                console.log('-----Sistema para cadastrar Carros------');
-                console.log('1 - cadastrar Carro');
-                console.log('2 - listar todos os carros');
-                console.log('3 - Filtar os Carros por marca');
-                console.log('4 - Atualizar Carros');
-                console.log('5 - Revover algum carro');
-                console.log('6 - sair do sistema');
-
-
-                const opcoes = Number(prompt('digite a opção escolhida com numeros de 1 a 6'))
+                const opcoes = Number(prompt(
+                    '-----Sistema para cadastrar Carros------\n' +
+                    '1 - cadastrar Carro\n' +
+                    '2 - listar todos os carros\n' +
+                    '3 - Filtar os Carros por marca\n' +
+                    '4 - Atualizar Carros\n' +
+                    '5 - Revover algum carro\n' +
+                    '6 - sair do sistema\n' +
+                    'digite a opção escolhida com numeros de 1 a 6'
+                ))
 
                 switch (opcoes) {
                     case 1:
@@ -109,10 +109,10 @@
                         removerCarro();
                         break;
                     case 6:
-                        console.log('Sistema encerrado.');
+                        alert('Sistema encerrado.');
                         return;
                     default:
-                        console.log('Opção inválida. Tente novamente.');
+                        alert('Opção inválida. Tente novamente.');
                 }
             }
         }
