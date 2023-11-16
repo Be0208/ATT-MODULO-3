@@ -9,12 +9,91 @@
 
 <body>
     <script>
-        const todosCarros = []
+        const todosCarros = [{
+            id: '61',
+            modelo: 'Truck',
+            marca: 'Ford',
+            ano: 2021,
+            cor: 'White',
+            preco: 35000
+        },
+        {
+            id: '78',
+            modelo: 'SUV',
+            marca: 'Toyota',
+            ano: 2022,
+            cor: 'White',
+            preco: 20000
+        },
+        {
+            id: '2',
+            modelo: 'Truck',
+            marca: 'Honda',
+            ano: 2022,
+            cor: 'Blue',
+            preco: 35000
+        },
+        {
+            id: '17',
+            modelo: 'Hatchback',
+            marca: 'Toyota',
+            ano: 2022,
+            cor: 'Black',
+            preco: 30000
+        },
+        {
+            id: '27',
+            modelo: 'Truck',
+            marca: 'Ford',
+            ano: 2021,
+            cor: 'Red',
+            preco: 35000
+        },
+        {
+            id: '12',
+            modelo: 'Truck',
+            marca: 'Chevrolet',
+            ano: 2021,
+            cor: 'Black',
+            preco: 30000
+        },
+        {
+            id: '76',
+            modelo: 'Hatchback',
+            marca: 'Chevrolet',
+            ano: 2021,
+            cor: 'Blue',
+            preco: 25000
+        },
+        {
+            id: '58',
+            modelo: 'SUV',
+            marca: 'Ford',
+            ano: 2020,
+            cor: 'Red',
+            preco: 30000
+        },
+        {
+            id: '78',
+            modelo: 'Truck',
+            marca: 'Toyota',
+            ano: 2020,
+            cor: 'White',
+            preco: 20000
+        },
+        {
+            id: '41',
+            modelo: 'Hatchback',
+            marca: 'Ford',
+            ano: 2022,
+            cor: 'Black',
+            preco: 25000
+        },]
 
 
         //1
         function adicionarCarro() {
-            const id = todosCarros.length + 1
+            const id = Date.now()
             const modelo = prompt('Informe o modelo do veículo:')
             const marca = prompt('Informe a marca do veículo:')
             const ano = prompt('Informe o ano do veículo:')
@@ -28,6 +107,7 @@
         }
 
         //2
+        todosCarros.sort((a, b) => a.preco - b.preco);
         function listarCarros() {
             todosCarros.forEach((veiculo) => {
                 alert(`ID: ${veiculo.id} | Modelo: ${veiculo.modelo} | Marca: ${veiculo.marca} | Ano: ${veiculo.ano} | Cor: ${veiculo.cor} | Preço: R$${veiculo.preco}`)
@@ -52,7 +132,7 @@
         //4
         function atualizarCarro() {
             const atualizarId = prompt('Digite o IDENTIFICADOR do veículo que deseja atualizar:')
-            const carros = todosCarros.findIndex((carro) => carro.id === atualizarId)
+            const carros = todosCarros.findIndex((carro) => carro.id == atualizarId)
 
             if (carros) {
                 const novaCor = prompt('Digite a nova cor do veículo:')
@@ -68,7 +148,7 @@
         //5
         function removerCarro() {
             const removerId = Number(prompt('Digite o IDENTIFICADOR do veículo que deseja remover:'))
-            const indice = todosCarros.findIndex((carro) => carro.id === removerId)
+            const indice = todosCarros.findIndex((carro) => carro.id == removerId)
 
             if (indice !== -1) {
                 todosCarros.splice(indice, 1)
@@ -81,7 +161,7 @@
             while (true) {
                 const opcoes = Number(prompt(
                     'Bem-vindo ao sistema de CRUD de veículos: \n \n' +
-                    'No momento, o sistema tem X carros cadastrados \n' +
+                    `No momento, o sistema tem ${todosCarros.length} carros cadastrados \n` +
                     'Escolha uma das opções para interagir com o sistema: \n \n' +
                     '1 - cadastrar Carro\n' +
                     '2 - listar todos os carros\n' +
