@@ -21,7 +21,7 @@
             const cor = prompt('Informe a cor do veículo:')
             const preco = prompt('Informe o preço do veículo:')
 
-            const novoCarro = { id, modelo, marca, ano, cor, preco };
+            const novoCarro = { id, modelo, marca, ano, cor, preco }
             todosCarros.push(novoCarro);
 
             alert('Veículo adicionado')
@@ -30,7 +30,7 @@
         //2
         function listarCarros() {
             todosCarros.forEach((veiculo) => {
-                alert(`ID: ${veiculo.id} | Modelo: ${veiculo.modelo} | Marca: ${veiculo.marca} | Ano: ${veiculo.ano} | Cor: ${veiculo.cor} | Preço: R$${veiculo.preco}`);
+                alert(`ID: ${veiculo.id} | Modelo: ${veiculo.modelo} | Marca: ${veiculo.marca} | Ano: ${veiculo.ano} | Cor: ${veiculo.cor} | Preço: R$${veiculo.preco}`)
             });
         }
 
@@ -78,7 +78,8 @@
 
         //6
         function menuzinho() {
-            while (true) {
+            let m = true
+            while (m) {
                 const opcoes = Number(prompt(
                     '-----Sistema para cadastrar Carros------\n' +
                     '1 - cadastrar Carro\n' +
@@ -107,6 +108,7 @@
                         removerCarro();
                         break;
                     case 6:
+                        m = false
                         alert('Sistema encerrado.');
                         return;
                     default:
