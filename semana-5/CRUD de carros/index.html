@@ -78,10 +78,11 @@
 
         //6
         function menuzinho() {
-            let m = true
-            while (m) {
+            while (true) {
                 const opcoes = Number(prompt(
-                    '-----Sistema para cadastrar Carros------\n' +
+                    'Bem-vindo ao sistema de CRUD de veículos: \n \n' +
+                    'No momento, o sistema tem X carros cadastrados \n' +
+                    'Escolha uma das opções para interagir com o sistema: \n \n' +
                     '1 - cadastrar Carro\n' +
                     '2 - listar todos os carros\n' +
                     '3 - Filtar os Carros por marca\n' +
@@ -108,7 +109,6 @@
                         removerCarro();
                         break;
                     case 6:
-                        m = false
                         alert('Sistema encerrado.');
                         return;
                     default:
