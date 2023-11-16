@@ -9,7 +9,86 @@
 
 <body>
     <script>
-        const todosCarros = []
+        const todosCarros = [{
+            id: Date.now(),
+            modelo: 'Truck',
+            marca: 'Ford',
+            ano: 2021,
+            cor: 'White',
+            preco: 35000
+        },
+        {
+            id: Date.now(),
+            modelo: 'SUV',
+            marca: 'Toyota',
+            ano: 2022,
+            cor: 'White',
+            preco: 20000
+        },
+        {
+            id: Date.now(),
+            modelo: 'Truck',
+            marca: 'Honda',
+            ano: 2022,
+            cor: 'Blue',
+            preco: 35000
+        },
+        {
+            id: Date.now(),
+            modelo: 'Hatchback',
+            marca: 'Toyota',
+            ano: 2022,
+            cor: 'Black',
+            preco: 30000
+        },
+        {
+            id: Date.now(),
+            modelo: 'Truck',
+            marca: 'Ford',
+            ano: 2021,
+            cor: 'Red',
+            preco: 35000
+        },
+        {
+            id: Date.now(),
+            modelo: 'Truck',
+            marca: 'Chevrolet',
+            ano: 2021,
+            cor: 'Black',
+            preco: 30000
+        },
+        {
+            id: Date.now(),
+            modelo: 'Hatchback',
+            marca: 'Chevrolet',
+            ano: 2021,
+            cor: 'Blue',
+            preco: 25000
+        },
+        {
+            id: Date.now(),
+            modelo: 'SUV',
+            marca: 'Ford',
+            ano: 2020,
+            cor: 'Red',
+            preco: 30000
+        },
+        {
+            id: Date.now(),
+            modelo: 'Truck',
+            marca: 'Toyota',
+            ano: 2020,
+            cor: 'White',
+            preco: 20000
+        },
+        {
+            id: Date.now(),
+            modelo: 'Hatchback',
+            marca: 'Ford',
+            ano: 2022,
+            cor: 'Black',
+            preco: 25000
+        },]
 
 
         //1
@@ -77,10 +156,31 @@
             } else alert('veiculo nao encontrado :(')
         }
 
-        //6
+        // extra //6
+        function filtrarCarrosPorFaixaDePreco(precoMinimo, precoMaximo) {
+            const faixaDePreco = todosCarros.filter((carro) => carro.preco >= precoMinimo && carro.preco <= precoMaximo)
+
+            if (faixaDePreco.length > 0) {
+                alert(`Veículos na faixa de preço de R$${precoMinimo} a R$${precoMaximo}:`)
+                faixaDePreco.forEach((carros) => {
+                    alert(`ID: ${carro.id} | Modelo: ${carro.modelo} | Cor: ${carro.cor} | Preço: R$${carro.preco}`)
+                })
+            } else alert('Nenhum veiculo encontrado nessa faixa de preço')
+        }
+
+
+
+
+
+
+
+
+
+
+        //------------------menu-----------------
         function menuzinho() {
             while (true) {
-                const opcoes = Number(prompt(
+                const opcoes = +prompt(
                     'Bem-vindo ao sistema de CRUD de veículos: \n \n' +
                     `No momento, o sistema tem ${todosCarros.length} carros cadastrados \n` +
                     'Escolha uma das opções para interagir com o sistema: \n \n' +
@@ -89,9 +189,9 @@
                     '3 - Filtar os Carros por marca\n' +
                     '4 - Atualizar Carros\n' +
                     '5 - Revover algum carro\n' +
-                    '6 - sair do sistema\n' +
-                    'digite a opção escolhida com numeros de 1 a 6'
-                ))
+                    '6 - Filtar os carros por preço\n' +
+                    '9 - para sair do sistema\n'
+                )
 
                 switch (opcoes) {
                     case 1:
@@ -110,6 +210,11 @@
                         removerCarro();
                         break;
                     case 6:
+                        const precoMinimo = Number(prompt('Digite o preço mínimo:'));
+                        const precoMaximo = Number(prompt('Digite o preço máximo:'));
+                        filtrarCarrosPorFaixaDePreco(precoMinimo, precoMaximo);
+                        break;
+                    case 9:
                         alert('Sistema encerrado.');
                         return;
                     default:
