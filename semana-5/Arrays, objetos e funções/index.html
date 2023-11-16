@@ -78,6 +78,7 @@
         // 5. Imprima no console a soma do salário de todos as pessoas do sexo
         // Masculino
         let sexoMasculino = 0
+
         for (pessoa of data) {
             if (pessoa.sexo === 'M') {
                 sexoMasculino++
@@ -85,8 +86,7 @@
         }
 
         let mediaM = somaSalarios / sexoMasculino
-
-
+        console.log(mediaM);
 
         // 6. Imprima no console a média do salário de todas as pessoas do sexo
         // Masculino
@@ -94,11 +94,22 @@
         // 7. Utilize a função Some, para descobrir se existe algum salário
         // superior a R$ 7.000, imprima verdadeiro no console caso exista, caso
         // contrário falso.
+
+
         // 8. Utilize a função findIndex, para descobrir a posição da pessoa de
         // nome 'Eva Trindade'.
+
+
         // 9. Utilize a função filter, para filtrar todas pessoas que o nome possua o
         // sobrenome "Silva".
+
+
         // 10. Imprima os nomes utilizando o MAP
+        console.log('existem os seguintes nome:');
+        
+        data.map((d) => {
+            console.log(d.nome)
+        });
 
 
     </script>
