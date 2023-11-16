@@ -183,22 +183,22 @@
         // extra //8
 
         function agruparCarrosPorMarca() {
-            const carrosPorMarca = {};
+            const carrosPorMarca = {}
 
             todosCarros.forEach((carro) => {
                 if (carrosPorMarca[carro.marca]) {
-                    carrosPorMarca[carro.marca].push(carro);
+                    carrosPorMarca[carro.marca].push(carro)
                 } else {
-                    carrosPorMarca[carro.marca] = [carro];
+                    carrosPorMarca[carro.marca] = [carro]
                 }
-            });
+            })
 
-            alert('Carros agrupados por marca:');
+            alert('Carros agrupados por marca:')
             for (const marca in carrosPorMarca) {
-                alert(`Marca: ${marca}`);
+                alert(`Marca: ${marca}`)
                 carrosPorMarca[marca].forEach((carro) => {
-                    alert(`ID: ${carro.id} | Modelo: ${carro.modelo} | Ano: ${carro.ano} | Cor: ${carro.cor} | Preço: R$${carro.preco}`);
-                });
+                    alert(`ID: ${carro.id} | Modelo: ${carro.modelo} | Ano: ${carro.ano} | Cor: ${carro.cor} | Preço: R$${carro.preco}`)
+                })
             }
         }
 
