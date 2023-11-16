@@ -109,8 +109,8 @@
         //2
         todosCarros.sort((a, b) => a.preco - b.preco);
         function listarCarros() {
-            todosCarros.forEach((veiculo) => {
-                alert(`ID: ${veiculo.id} | Modelo: ${veiculo.modelo} | Marca: ${veiculo.marca} | Ano: ${veiculo.ano} | Cor: ${veiculo.cor} | Preço: R$${veiculo.preco}`)
+            todosCarros.forEach((carro) => {
+                alert(`ID: ${carro.id} |\n Modelo: ${carro.modelo} |\n Marca: ${carro.marca} |\n Cor: ${carro.cor} |\n Preço: R$${carro.preco}`)
             });
         }
 
@@ -156,19 +156,51 @@
             } else alert('veiculo nao encontrado :(')
         }
 
-        // extra //6
+        // extra // 6
         function filtrarCarrosPorFaixaDePreco(precoMinimo, precoMaximo) {
             const faixaDePreco = todosCarros.filter((carro) => carro.preco >= precoMinimo && carro.preco <= precoMaximo)
 
             if (faixaDePreco.length > 0) {
                 alert(`Veículos na faixa de preço de R$${precoMinimo} a R$${precoMaximo}:`)
-                faixaDePreco.forEach((carros) => {
-                    alert(`ID: ${carro.id} | Modelo: ${carro.modelo} | Cor: ${carro.cor} | Preço: R$${carro.preco}`)
+                faixaDePreco.forEach((carro) => {
+                    alert(`ID: ${carro.id} |\n Modelo: ${carro.modelo} |\n Marca: ${carro.marca} |\n Cor: ${carro.cor} |\n Preço: R$${carro.preco}`)
                 })
             } else alert('Nenhum veiculo encontrado nessa faixa de preço')
         }
 
+        // extra // 7
+        const encontrarCarroMaisCaro = () => {
+            let carroMaisCaro = todosCarros[0]
 
+            todosCarros.forEach(carro => {
+                if (carro.preco > carroMaisCaro.preco) {
+                    carroMaisCaro = carro
+                }
+            })
+            alert(`Carro mais caro:\n ID: ${carroMaisCaro.id} | Modelo: ${carroMaisCaro.modelo} | Marca: ${carroMaisCaro.marca} | Ano: ${carroMaisCaro.ano} | Cor: ${carroMaisCaro.cor} | Preço: R$${carroMaisCaro.preco}`);
+        };
+
+        // extra //8
+
+        function agruparCarrosPorMarca() {
+            const carrosPorMarca = {};
+
+            todosCarros.forEach((carro) => {
+                if (carrosPorMarca[carro.marca]) {
+                    carrosPorMarca[carro.marca].push(carro);
+                } else {
+                    carrosPorMarca[carro.marca] = [carro];
+                }
+            });
+
+            alert('Carros agrupados por marca:');
+            for (const marca in carrosPorMarca) {
+                alert(`Marca: ${marca}`);
+                carrosPorMarca[marca].forEach((carro) => {
+                    alert(`ID: ${carro.id} | Modelo: ${carro.modelo} | Ano: ${carro.ano} | Cor: ${carro.cor} | Preço: R$${carro.preco}`);
+                });
+            }
+        }
 
 
 
@@ -190,6 +222,8 @@
                     '4 - Atualizar Carros\n' +
                     '5 - Revover algum carro\n' +
                     '6 - Filtar os carros por preço\n' +
+                    '7 - Encontrar o carro mais caro \n' +
+                    '8 - Agrupar os carros por marca \n' +
                     '9 - para sair do sistema\n'
                 )
 
@@ -213,6 +247,12 @@
                         const precoMinimo = Number(prompt('Digite o preço mínimo:'));
                         const precoMaximo = Number(prompt('Digite o preço máximo:'));
                         filtrarCarrosPorFaixaDePreco(precoMinimo, precoMaximo);
+                        break;
+                    case 7:
+                        encontrarCarroMaisCaro();
+                        break;
+                    case 8:
+                        agruparCarrosPorMarca();
                         break;
                     case 9:
                         alert('Sistema encerrado.');
