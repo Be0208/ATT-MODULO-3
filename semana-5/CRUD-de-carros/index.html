@@ -131,20 +131,18 @@
 
         //4
         function atualizarCarro() {
-            const atualizarId = prompt('Digite o IDENTIFICADOR do veículo que deseja atualizar:');
-            const indexCarro = todosCarros.findIndex((carro) => carro.id === atualizarId);
+            const atualizarId = prompt('Digite o IDENTIFICADOR do veículo que deseja atualizar:')
+            const carros = todosCarros.findIndex((carro) => carro.id == atualizarId)
 
-            if (indexCarro !== -1) {
-                const novaCor = prompt('Digite a nova cor do veículo:');
-                const novoPreco = prompt('Digite o novo preço do veículo:');
+            if (carros) {
+                const novaCor = prompt('Digite a nova cor do veículo:')
+                const novoPreco = prompt('Digite o novo preço do veículo:')
 
-                todosCarros[indexCarro].cor = novaCor;
-                todosCarros[indexCarro].preco = novoPreco;
+                carros.cor = novaCor
+                carros.preco = novoPreco
 
-                alert('Veículo atualizado!');
-            } else {
-                alert('Veículo não encontrado');
-            }
+                alert(`Veículo atualizado!`);
+            } else alert(`veiculo nao encontrado`);
         }
 
         //5
