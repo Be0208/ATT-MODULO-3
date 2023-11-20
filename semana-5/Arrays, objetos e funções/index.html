@@ -60,7 +60,7 @@
                 sexoFeminino++
             }
         }
-        console.log(sexoFeminino);
+        console.log(`Existem ${sexoFeminino} pessoas do sexo feminino.`);
 
         // 3. Imprima no console a soma do salário de todas as pessoas.
         let somaSalarios = 0
@@ -68,45 +68,71 @@
         for (const pessoas of data) {
             somaSalarios += pessoa.salario
         }
-        console.log(`A soma dos salários de todas as pessoas é: ${somaSalarios}`);
+        console.log(`A soma dos salários de todas as pessoas é: ${somaSalarios.toFixed(2)}`);
 
         // 4. Imprima no console a média do salário de todas as pessoas.
         let mediaSalarios = somaSalarios / total
 
-        console.log(`a media de todos os salarios e de ${mediaSalarios}`);
+        console.log(`a media de todos os salarios e de ${mediaSalarios.toFixed(2)}`);
 
         // 5. Imprima no console a soma do salário de todos as pessoas do sexo
         // Masculino
-        let sexoMasculino = 0
+        let somaSalariosMasculinos = 0;
 
-        for (pessoa of data) {
-            if (pessoa.sexo === 'M') {
-                sexoMasculino++
+        for (const pessoa of data) {
+            if (pessoa.sexo == 'M') {
+                somaSalariosMasculinos += pessoa.salario;
             }
         }
-
-        let mediaM = somaSalarios / sexoMasculino
-        console.log(mediaM);
+        console.log(`A soma dos salários de todas as pessoas do sexo masculino é de $${somaSalariosMasculinos.toFixed(2)}.`);
 
         // 6. Imprima no console a média do salário de todas as pessoas do sexo
         // Masculino
+        let somaSalariosHomens = 0;
+        let quantidadeHomens = 0;
+
+        for (const pessoa of data) {
+            if (pessoa.sexo === 'M') {
+                somaSalariosHomens += pessoa.salario;
+                quantidadeHomens++;
+            }
+        }
+
+        let mediaSalariosHomens = somaSalariosHomens / quantidadeHomens;
+
+        console.log(`A média do salário de todas as pessoas do sexo masculino é de $${mediaSalariosHomens.toFixed(2)}.`);
+
 
         // 7. Utilize a função Some, para descobrir se existe algum salário
         // superior a R$ 7.000, imprima verdadeiro no console caso exista, caso
         // contrário falso.
+        let salarioMaiorQueSeteMil = data.some((pessoa) => {
+            return pessoa.salario > 7000;
+        });
+
+        console.log(`Existe algum salário superior a R$ 7.000? ${salarioMaiorQueSeteMil}`);
 
 
         // 8. Utilize a função findIndex, para descobrir a posição da pessoa de
         // nome 'Eva Trindade'.
+        let posicaoEvaTrindade = data.findIndex((pessoa) => {
+            return pessoa.nome === 'Eva Trindade';
+        });
+        console.log(`A posição de Eva Trindade é ${posicaoEvaTrindade}.`);
+
+
 
 
         // 9. Utilize a função filter, para filtrar todas pessoas que o nome possua o
         // sobrenome "Silva".
-
+        let pessoasComSobrenomeSilva = data.filter((pessoa) => {
+            return pessoa.nome.includes('Silva');
+        });
+        console.log(`Pessoas com sobrenome Silva:`, pessoasComSobrenomeSilva);
 
         // 10. Imprima os nomes utilizando o MAP
         console.log('existem os seguintes nome:');
-        
+
         data.map((d) => {
             console.log(d.nome)
         });
