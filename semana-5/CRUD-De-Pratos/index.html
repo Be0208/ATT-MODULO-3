@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD PRATOS</title>
+</head>
+
+<body>
+    <script>
+        const cardapio = [
+            {
+                nome: 'Salada Caesar',
+                descricao: 'Salada clássica com molho Caesar',
+                preco: 15.99,
+                categoria: 'entradas',
+                disponibilidade: false
+            },
+            {
+                nome: 'Filé Mignon',
+                descricao: 'Filé mignon grelhado com molho especial',
+                preco: 29.99,
+                categoria: 'prato principal',
+                disponibilidade: true
+            },
+            {
+                nome: 'Tiramisu',
+                descricao: 'Sobremesa italiana com café e queijo mascarpone',
+                preco: 12.50,
+                categoria: 'sobremesas',
+                disponibilidade: true
+            },
+            {
+                nome: 'Bruschetta',
+                descricao: 'Fatias de pão italiano cobertas com tomate, manjericão e alho',
+                preco: 8.99,
+                categoria: 'entradas',
+                disponibilidade: true
+            },
+            {
+                nome: 'Risoto de Funghi',
+                descricao: 'Risoto cremoso com cogumelos funghi porcini',
+                preco: 24.50,
+                categoria: 'prato principal',
+                disponibilidade: true
+            },
+            {
+                nome: 'Sorvete de Chocolate',
+                descricao: 'Sorvete cremoso com pedaços de chocolate',
+                preco: 10.00,
+                categoria: 'sobremesas',
+                disponibilidade: true
+            },
+            {
+                nome: 'Carpaccio de Salmão',
+                descricao: 'Finas fatias de salmão marinadas com limão e azeite',
+                preco: 18.75,
+                categoria: 'entradas',
+                disponibilidade: true
+            },
+            {
+                nome: 'Frango ao Curry',
+                descricao: 'Peito de frango cozido em molho curry cremoso',
+                preco: 22.99,
+                categoria: 'prato principal',
+                disponibilidade: true
+            },
+            {
+                nome: 'Mousse de Maracujá',
+                descricao: 'Mousse leve e aerado de maracujá',
+                preco: 13.50,
+                categoria: 'sobremesas',
+                disponibilidade: false
+            },
+            {
+                nome: 'Ceviche de Camarão',
+                descricao: 'Camarões marinados em limão e temperos frescos',
+                preco: 26.50,
+                categoria: 'entradas',
+                disponibilidade: false
+            }
+        ]
+
+        //1
+        function cadastrarPrato() {
+            const nome = prompt('Nome do prato')
+            const descrição = prompt('Qual a descrição do prato')
+            const preco = +prompt('Preço do prato')
+            const categoria = prompt('entradas, prato principal ou sobremesas?')
+            const disponibilidade = prompt('Esta disponivel no menu? Insirir "valido" ou "nao valido"')
+
+            const novoPrato = { nome, descrição, preco, categoria, disponibilidade }
+            cardapio.push(novoPrato)
+
+            alert('Prato adicionado')
+        }
+
+        //2
+        function listarCardapio() {
+            cardapio.forEach((prato) => {
+                alert(`Nome: ${prato.nome}, Descrição: ${prato.descrição}`)
+            })
+        }
+
+        // 3
+        const termo = prompt('Digite o termo de busca')
+        function buscarPrato() {
+            const encontrarPrato = cardapio.filter(prato => prato.categoria.toLowerCase().includes(termo.toUpperCase)) //valor predefinido
+            console.log(encontrarPrato);
+        }
+
+
+
+
+
+    </script>
+</body>
+
+</html>
