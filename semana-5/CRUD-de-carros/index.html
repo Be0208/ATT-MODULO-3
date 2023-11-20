@@ -96,9 +96,9 @@
             const id = Date.now()
             const modelo = prompt('Informe o modelo do veículo:')
             const marca = prompt('Informe a marca do veículo:')
-            const ano = prompt('Informe o ano do veículo:')
+            const ano = +prompt('Informe o ano do veículo:')
             const cor = prompt('Informe a cor do veículo:')
-            const preco = prompt('Informe o preço do veículo:')
+            const preco = +prompt('Informe o preço do veículo:')
 
             const novoCarro = { id, modelo, marca, ano, cor, preco }
             todosCarros.push(novoCarro);
@@ -131,18 +131,20 @@
 
         //4
         function atualizarCarro() {
-            const atualizarId = prompt('Digite o IDENTIFICADOR do veículo que deseja atualizar:')
-            const carros = todosCarros.findIndex((carro) => carro.id == atualizarId)
+            const atualizarId = prompt('Digite o IDENTIFICADOR do veículo que deseja atualizar:');
+            const indexCarro = todosCarros.findIndex((carro) => carro.id === atualizarId);
 
-            if (carros) {
-                const novaCor = prompt('Digite a nova cor do veículo:')
-                const novoPreco = prompt('Digite o novo preço do veículo:')
+            if (indexCarro !== -1) {
+                const novaCor = prompt('Digite a nova cor do veículo:');
+                const novoPreco = prompt('Digite o novo preço do veículo:');
 
-                carros.cor = novaCor
-                carros.preco = novoPreco
+                todosCarros[indexCarro].cor = novaCor;
+                todosCarros[indexCarro].preco = novoPreco;
 
-                alert(`Veículo atualizado!`);
-            } else alert(`veiculo nao encontrado`);
+                alert('Veículo atualizado!');
+            } else {
+                alert('Veículo não encontrado');
+            }
         }
 
         //5
@@ -201,17 +203,9 @@
                 })
             }
         }
-        
-
-
-
-
-
-
-
 
         //------------------menu-----------------
-        
+
         function menuzinho() {
             while (true) {
                 const opcoes = +prompt(
