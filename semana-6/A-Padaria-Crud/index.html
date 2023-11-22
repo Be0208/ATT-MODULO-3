@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const cardapio = [
+            {
+                id: 1,
+                nome: 'Pao de Ló',
+                estoque: 100,
+                preco: 15,
+                precoCusto: 5,
+                lucro: 10,
+            },
+            {
+                id: 2,
+                nome: 'Sonho',
+                estoque: 80,
+                preco: 6,
+                precoCusto: 3,
+                lucro: 3,
+            },
+            {
+                id: 3,
+                nome: 'Quindin',
+                estoque: 25,
+                preco: 5,
+                precoCusto: 2,
+                lucro: 3,
+            },
+        ]
+
+
+        // 1
+        function listarProduto() {
+            const opcoes = prompt(`Escolha o modo de listagem: 
+            1 - simplificada
+            2 - por ordem de preço
+            3 - por ordem alfabética`)
+
+            let produtosOrdenados
+
+            switch (opcoes) {
+                case '1':
+                    cardapio.forEach((produtos) => {
+                        alert(`ID: ${produtos.id} | Nome: ${produtos.nome} | Estoque: ${produtos.estoque} | Preço: ${produtos.preco}`);
+                    });
+                    break;
+                case '2':
+                    produtosOrdenados = cardapio.sort((a, b) => a.preco - b.preco)
+                    cardapio.forEach((produtos) => {
+                        alert(`ID: ${produtos.id} | Nome: ${produtos.nome} | Estoque: ${produtos.estoque} | Preço: ${produtos.preco}`);
+                    });
+                    break;
+                case '3':
+                    produtosOrdenados = cardapio.sort((a, b) => a.nome - b.nome)
+                    cardapio.forEach((produtos) => {
+                        alert(`ID: ${produtos.id} | Nome: ${produtos.nome} | Estoque: ${produtos.estoque} | Preço: ${produtos.preco}`);
+                    });
+                    break;
+                default:
+                    alert('opção invalida')
+                    listarProduto()
+                    break;
+            }
+
+
+        }
+
+        // 2
+        function cadastrarProduto() {
+            const id = cardapio.length + 1
+            const nome = prompt('Digite o nome do produto')
+            const estoque = +prompt('Estoque do produto')
+            const preco = +prompt('Preço do produto')
+
+            const novoProduto = { id, nome, estoque, preco }
+
+            cardapio.push(novoProduto)
+
+            alert('Produto cadastrado com sucesso!')
+        }
+
+        // 3
+        function editarProduto() {
+            const atualizarNome = prompt('Digite o nome do produto')
+            const produtos = cardapio.find((produto) => produto.nome === atualizarNome)
+
+            if (produtos) {
+                const novoNome = prompt('Novo Nome do produto')
+                const novoEstoque = +prompt('Novo Estoque do produto')
+                const novoPreco = +prompt('Novo preço do produto')
+
+                if (novoEstoque < 0) {
+                    alert('Erro: O estoque nao pode ser menor que ZERO')
+                    return
+                }
+
+                produtos.nome = novoNome
+                produtos.preco = novoPreco
+                produtos.estoque = novoEstoque
+
+                alert('Produto alterado com sucesso')
+            } else {
+                alert('Produto nao encontrado')
+            }
+        }
+
+
+        // 4 
+        function deletarProduto() {
+            const removerId = prompt('Digite o IDENTIFICADOR do produto que deseja remover:')
+            const indice = cardapio.findIndex((produto) => produto.id == removerId)
+
+            if (indice !== -1) {
+                cardapio.splice(indice, 1)
+                alert('produto removido')
+            } else alert('produto nao encontrado :(')
+        }
+
+        // 5
+        function valorEstoque() {
+            let precoVenda = cardapio.precoCusto + cardapio.lucro
+            const valorTotalEstoque = cardapio.reduce((total) => precoVenda * total )
+        }
+
+
+
+        function menuPadoca() {
+            while (true) {
+                const opcoes = +prompt(`Bem-vindo ao sistema de CRUD de veículos:
+
+                No momento, o sistema tem ${cardapio.length} produtos cadastrados.
+
+                Escolha uma das opções para interagir com o sistema:
+                1 - Cadastrar um produto
+                2 - Listar todos os produtos
+                3 - EditarProdutos
+                4 - Remover Produtos
+                5 - somar o valor do estoque(Preço de Venda)
+                6 - Sair do Menu`);
+
+
+                switch (opcoes) {
+                    case 1:
+                        cadastrarProduto()
+                        break;
+                    case 2:
+                        listarProduto()
+                        break;
+                    case 3:
+                        editarProduto()
+                        break;
+                    case 4:
+                        deletarProduto()
+                        break;
+                    case 5:
+
+                        break;
+                    case 6:
+                        alert('Saindo do Sistema')
+                        return
+                    default:
+                        alert('Opção invalida')
+                        break;
+                }
+            }
+        }
+        menuPadoca()
+    </script>
+</body>
+
+</html>

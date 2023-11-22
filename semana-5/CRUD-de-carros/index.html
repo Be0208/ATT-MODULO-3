@@ -132,7 +132,7 @@
         //4
         function atualizarCarro() {
             const atualizarId = prompt('Digite o IDENTIFICADOR do veículo que deseja atualizar:')
-            const carros = todosCarros.findIndex((carro) => carro.id == atualizarId)
+            const carros = todosCarros.find((carro) => carro.id == atualizarId)
 
             if (carros) {
                 const novaCor = prompt('Digite a nova cor do veículo:')
@@ -147,7 +147,7 @@
 
         //5
         function removerCarro() {
-            const removerId = Number(prompt('Digite o IDENTIFICADOR do veículo que deseja remover:'))
+            const removerId = prompt('Digite o IDENTIFICADOR do veículo que deseja remover:')
             const indice = todosCarros.findIndex((carro) => carro.id == removerId)
 
             if (indice !== -1) {
@@ -205,6 +205,7 @@
         //------------------menu-----------------
 
         function menuzinho() {
+            
             while (true) {
                 const opcoes = +prompt(
                     'Bem-vindo ao sistema de CRUD de veículos: \n \n' +
