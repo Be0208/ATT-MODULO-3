@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Requisições Rick and Morty</title>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./api.js"></script>
+</head>
+
+<body>
+    <script>
+
+        // ### **Parte 1: Manipular personagens**
+
+
+
+        // 1. **Listar personagens por status**
+        //     - Utilizar a API para obter uma lista de personagens.
+        //     - Filtrar os personagens por status (vivo **(alive)**, morto **(dead)**, desconhecido **(unknown)**).
+        //     - Exibir os nomes dos personagens de acordo com o status selecionado.
+        //         - O status deve ser passado como argumento ao executar a função.
+
+
+        async function fetchCharacters(status) {
+
+            try {
+                const response = await api.get(`character?status=${status}`)
+
+                const character = response.data.results
+
+                console.log(character);
+            }
+            catch (error) {
+                console.log("Erro" + error);
+            }
+            finally {
+                console.log("Finalizado");
+            }
+        }
+        const status = prompt('vivo **(alive)**, morto **(dead)**, desconhecido **(unknown)**')
+        fetchCharacters(status)
+
+
+
+
+
+        // // 2. **Encontrar personagem por nome**
+        // //     - Permitir ao usuário inserir o nome de um personagem.
+        // //         - O nome deve ser passado como argumento ao executar a função.
+        // //     - Utilizar a API para encontrar e exibir informações sobre o personagem correspondente ao nome inserido.
+
+
+        async function findCharacterByName(name) {
+            try {
+                const response = await api.get(`character?name=${name}`)
+
+                console.log(response.data.results);
+            }
+            catch (err) {
+                console.log("erro" + err);
+            }
+            finally {
+                console.log("Finalizou");
+            }
+        }
+
+        findCharacterByName(prompt('Digite o nome do personagem que deseja'))
+
+
+
+        // ### **Parte 2: Explorar episódios**
+
+
+
+        // 1. **Listar episódios por temporada**
+
+        //     [**https://rickandmortyapi.com/api/episode/?episode=S01**](https://rickandmortyapi.com/api/episode/?episode=S01)
+
+        //     - Utilizar a API para obter informações sobre os episódios.
+        //     - Permitir ao usuário selecionar uma temporada.
+        //         - A temporada deve ser passada como argumento ao executar a função.
+        //     - Exibir os episódios correspondentes à temporada escolhida.
+
+        async function listEpisode(season) {
+            try {
+                const response = await api.get(`episode?episode=S0${season}`)
+                const result = response.data.results
+                result.forEach(episodioNome => console.log(`Episodio: ${episodioNome.name}`))
+            }
+            catch (error) {
+                console.log(`Está temporada não existe!`);
+            }
+        }
+
+
+        listEpisode(prompt("Digite o numero da temporada: "))
+
+
+
+
+
+
+        // 2. **Detalhes de episódio**
+
+        //     [**https://rickandmortyapi.com/api/episode/1**](https://rickandmortyapi.com/api/episode/1)
+
+        //     - Permitir ao usuário inserir o número de um episódio.
+        //         - Episódio passado como argumento ao executar a função.
+        //     - Utilizar a API para encontrar e exibir informações detalhadas sobre o episódio correspondente ao número inserido.
+
+        async function episodeDetails(episode) {
+            try {
+                const response = await api.get(`episode/${episode}`)
+                const result = response.data
+                console.log(`Episodio encontrado: ${result.episode} | Nome: ${result.name}`)
+            }
+            catch (error) {
+                console.log(`Episódio ${episode} não encontrado!!`);
+            }
+        }
+
+        episodeDetails(prompt("Digite o ID do episódio!"))
+
+
+
+
+
+
+        // ### **Parte 3: Análise de locais**
+
+        // 1. **Listar locais**
+        //     - Utilizar a API para obter uma lista de locais.
+        //     - Exibir os nomes dos locais.
+
+
+
+
+        // 2. **Detalhes do local**
+        //     - Permitir ao usuário selecionar um local.
+        //         - O ID do local deve ser passado como argumento ao executar a função.
+        //     - Utilizar a API para encontrar e exibir informações detalhadas sobre o local selecionado.
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
