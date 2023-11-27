@@ -82,7 +82,7 @@ getBodies().then(() => {
     console.error("Erro", err)
 }).finally(() => {
     console.log('Terminou')
-});
+}); 
 
 
 
