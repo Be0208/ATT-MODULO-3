@@ -68,7 +68,7 @@ getBodies().then(() => {
     planetasSemLuas()
     listarNomesPlanetas()
 
-    console.log("-----1-----");
+    console.log("-----1-----") ;
     console.log(corposCelestes)
     console.log("-----2-----")
     console.log(planetasFiltrados)
