@@ -17,6 +17,7 @@ let massaTotal = []
 let somaMassasNotacaoCientifica = []
 
 let planetasComMaisDeDuasLuas = []
+let planetasComDensidadeMaior = []
 
 let planetasOrdenadosPorDescobrimento = []
 
@@ -102,15 +103,13 @@ function somarMassas() {
 
 function verificarLuasEDensidade() {
     planetasComMaisDeDuasLuas = planetasFiltrados.filter((planeta) => planeta.moons !== null && planeta.moons.length > 2);
-    
-    if (planetasComMaisDeDuasLuas.length > 0) {
-        const planetasComDensidadeMaior = planetasFiltrados.filter((planeta) => planeta.density > 2.34400);
-        console.log("Planetas com mais de 2 luas:", planetasComMaisDeDuasLuas);
-        console.log("Planetas com densidade maior que 2.34400:", planetasComDensidadeMaior);
-    } else {
-        console.log("Nenhum planeta tem mais de 2 luas.");
-    }
+
+    planetasComDensidadeMaior = planetasComMaisDeDuasLuas.filter((planeta) => planeta.density > 1);
 }
+
+    console.log("Questão 9");
+    console.log(planetasComMaisDeDuasLuas);
+    console.log(planetasComDensidadeMaior);
 
 // 10. Ordem de descobrimento: Encontre e imprima na tela todos nomes dos planetas e suas respectivas datas de descoberta, ordenando-os do mais recente ao mais antigo. 
 
